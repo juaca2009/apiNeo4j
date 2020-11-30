@@ -1,6 +1,5 @@
 import json
 from flask import Flask, request, Response, Blueprint, jsonify
-from dto import createConceptoDto, createGrupoDto
 from app import app
 from service.groupService import groupServicie
 from service.conceptosService import conceptoServicie
