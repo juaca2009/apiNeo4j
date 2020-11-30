@@ -4,6 +4,5 @@ itsdangerous==1.1.0
 Jinja2==2.11.2
 MarkupSafe==1.1.1
 neo4j==4.2.0
-PyMySQL==0.10.1
 pytz==2020.4
 Werkzeug==1.0.1

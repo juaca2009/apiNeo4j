@@ -43,8 +43,25 @@ class CGroupRepository():
         self.__sesion.run(query, parameters = {'nomg1':_nombreg1, 'nomg2':_nombreg2})
 
     def obtener_grupo(self, _nombre):
-        query = "MATCH (Grupo)-[:contiene_a]->(Concepto) WHERE Grupo.nombre=$nom RETURN Grupo.nombre, Concepto.nombre"
+        query = "MATCH (Grupo)-[:contiene_a]->(Concepto) WHERE Grupo.nombre=$nom RETURN Grupo.nombre, Grupo.descripcion, Concepto.nombre"
         a = self.__sesion.run(query, parameters = {'nom':_nombre})
+        temp = list()
+        for i in a:
+            temp.append(i)
+        return temp
+
+    def verificar_grupo(self, _nombre):
+        query = "MATCH (g:Grupo {nombre:$nom}) RETURN g"
+        a = self.__sesion.run(query, parameters = {'nom':_nombre})
+        print(type(a))
+        temp = list()
+        for i in a:
+            temp.append(i)
+        return temp
+
+    def verificar_concepto(self, _nombreg, _nombrec):
+        query = "MATCH (Grupo)-[:contiene_a]->(Concepto) WHERE Grupo.nombre=$nom and Concepto.nombre =$nomc RETURN Grupo.nombre"
+        a = self.__sesion.run(query, parameters = {'nom':_nombreg, 'nomc':_nombrec})
         temp = list()
         for i in a:
             temp.append(i)
