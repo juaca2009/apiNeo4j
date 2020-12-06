@@ -3,7 +3,7 @@ from repository.CGroupRepository import CGroupRepository
 
 class groupServicie():
     def __init__(self):
-        self.__repositorio = CGroupRepository('bolt://52.207.60.220:33184', 'neo4j', 'heights-completions-preferences')
+        self.__repositorio = CGroupRepository('bolt://54.144.136.36:34507', 'neo4j', 'corners-brush-horizon')
         self.__repositorio.conectar()
 
     def get_repositorio(self):
@@ -23,7 +23,7 @@ class groupServicie():
     def asociar_grupogrupo(self, _datos):
         temp = self.__repositorio.verificar_grupo(_datos["nombreg1"])
         temp2 = self.__repositorio.verificar_grupo(_datos["nombreg2"])
-        if len(temp) == 0 and len(temp2) == 0:
+        if len(temp) != 0 and len(temp2) != 0:
             self.__repositorio.unir_grupo(_datos["nombreg1"], _datos["nombreg2"])
             return 200
         else:

@@ -2,7 +2,7 @@ from repository.CGroupRepository import CGroupRepository
 
 class conceptoServicie():
     def __init__(self):
-        self.__repositorio = CGroupRepository('bolt://52.207.60.220:33184', 'neo4j', 'heights-completions-preferences')
+        self.__repositorio = CGroupRepository('bolt://54.144.136.36:34507', 'neo4j', 'corners-brush-horizon')
         self.__repositorio.conectar()
 
     def get_repositorio(self):
